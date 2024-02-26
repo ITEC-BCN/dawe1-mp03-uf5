@@ -11,5 +11,4 @@ fun main() {
 
     //Exercici 2
     var calculadora: Calculadora = Calculadora()
-
 }
