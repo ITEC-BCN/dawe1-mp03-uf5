@@ -23,13 +23,16 @@ fun main(){
         println("La frase '$frase' és ${esPalindrom(frase)} que sigui palíndrom")
     }
 
+
     //Exercici 2
     var fraseExercici2:String = "Un plat blanc pla ple de pebre negre està"
+
 
     //Exercici 2 -> forma 1
     var fraseExercici2Tunejada = fraseExercici2.lowercase().replace("[^p]".toRegex(),"")
     println(fraseExercici2Tunejada)
     println("La frase '$fraseExercici2' té un total de " + fraseExercici2Tunejada.length + " p's")
+
 
     //Exercici 2 -> forma 2
     val expressioRegular = "pl|bl"
@@ -42,9 +45,19 @@ fun main(){
     }
     println("\nQuantitat trobades: $qTrobades")
 
-    //Exercici 3
-    val arrayParaules = fraseExercici2.split(" ")
+
+    //Exercici 3 -> forma 1: només té en compte un espai en blanc
+    var arrayParaules = fraseExercici2.split(" ")
     println("La frase '$fraseExercici2' té ${arrayParaules.size} paraules")
+
+
+    //Exercici 3 -> forma 2: té en compte si hi ha un espai en blanc o més
+    fraseExercici2Tunejada = fraseExercici2.lowercase().replace("\\s{2,}".toRegex()," ")
+    fraseExercici2 = "Un plat blanc pla ple de pebre  negre   està"
+    println(fraseExercici2Tunejada)
+    arrayParaules = fraseExercici2Tunejada.split(" ")
+    println("La frase '$fraseExercici2' té ${arrayParaules.size} paraules")
+
 
     //Exercici 4
     println("12345678Z: ${comprobarDNI("12345678Z")}")  //correcte
